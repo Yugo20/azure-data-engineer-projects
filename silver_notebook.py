@@ -1,7 +1,5 @@
 # Silver Layer - Filter purchase & clean data
-from pyspark.sql.functions import col, to_date, lower
 
-df_bronze = spark.read.parquet("abfss://clean@<storage_account>.dfs.core.windows.net/bronze/retail_transactions/")
 df_silver = (
     df_bronze
     .filter(col("event_type") == "purchase")
@@ -14,4 +12,5 @@ df_silver = (
         "product_category", "payment_method", "amount", "location"
     )
 )
-df_silver.write.mode("overwrite").parquet("abfss://clean@<storage_account>.dfs.core.windows.net/silver/purchase_clean/")
+df_silver.write.mode("overwrite").parquet("abfss://retail@pocretail.dfs.core.windows.net/silver/")
+
