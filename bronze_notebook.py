@@ -1,3 +1,4 @@
 # Bronze Layer - Ingest JSON from ADLS
-df_bronze = spark.read.json("abfss://raw@<storage_account>.dfs.core.windows.net/bronze/retail_transactions/")
-df_bronze.write.mode("overwrite").parquet("abfss://clean@<storage_account>.dfs.core.windows.net/bronze/retail_transactions/")
+from pyspark.sql.functions import col, to_date, lower
+df_bronze = spark.read.parquet("abfss://retail@pocretail.dfs.core.windows.net/bronze/manish040596/azure-data-engineer-projects/refs/heads/main/retail_transactions_bronze.parquet")
+df_bronze.show()
