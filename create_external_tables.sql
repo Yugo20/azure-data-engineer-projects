@@ -1,3 +1,5 @@
+CREATE Database retailbase
+
 -- sql table
 
 CREATE EXTERNAL DATA SOURCE blob_retail_datasource
