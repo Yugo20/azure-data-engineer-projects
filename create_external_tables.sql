@@ -1,5 +1,5 @@
 -- sql table
-
+Create database Retail
 CREATE EXTERNAL DATA SOURCE blob_retail_datasource
 WITH (
     LOCATION = 'https://pocretail.blob.core.windows.net/retail'
